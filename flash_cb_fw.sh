@@ -82,15 +82,22 @@ check_md5 () {
   local md5_file
   local download_md5
   local md5
+  echo "it's a mario time"
+  echo "download_md5: $download_md5"
+  echo "md5: $md5"
+  echo "file: $file"
+  echo "md5_file: $md5_file"
+
   file="$(echo $1 | awk -F '/' '{print $NF}')"
   md5_file="$(echo $2 | awk -F '/' '{print $NF}')"
   download_md5="$(md5sum "$file" | awk '{print $1}')"
   md5="$(grep $file $md5_file | awk '{print $1}')"
   md5="$(echo $md5 | awk '{print $1}')"
-
+  
   echo "it's a luigi time"
   echo "download_md5: $download_md5"
   echo "md5: $md5"
+
   if [[ "$download_md5" != "$md5" ]]; then
     err "
 ERROR: MD5's for $1 don't match. Please try again later.
