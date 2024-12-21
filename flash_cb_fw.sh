@@ -89,7 +89,7 @@ check_md5 () {
   download_md5="$(md5sum "$file" | awk '{print $1}')"
   md5="$(grep $file $md5_file | awk '{print $1}')"
   echo "md5 unfinished: $md5"
- echo "$(grep $file $md5_file)"
+  echo "$(grep $file $md5_file)"
   md5="$(echo $md5 | awk '{print $1}')"
   
   echo "it's a luigi time"
