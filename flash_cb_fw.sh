@@ -91,7 +91,7 @@ check_md5 () {
   [ -f "$file" ] && echo "$file exists" || echo "$file does not exist"
   [ -f "$md5_file" ] && echo "$md5_file exists" || echo "$md5_file does not exist"
   echo "Contents of $md5_file:"
-  cat "$md5_file"
+  echo "$(cat "$md5_file")"
   md5="$(grep $file $md5_file | awk '{print $1}')"
   echo "md5 unfinished: $md5"
   echo "$(grep $file $md5_file)"
