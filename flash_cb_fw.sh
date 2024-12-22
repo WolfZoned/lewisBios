@@ -67,8 +67,8 @@ flash a shellball ROM and restore your product/GBB data
 
 update_legacy_slot () {
   echo "legacy file: $LEGACY_FILE"
-  download legacy-slots/"$LEGACY_FILE"-latest.cbfs.tar.bz2
-  download legacy-slots/legacy-slots.md5
+  download "$LEGACY_FILE"-latest.cbfs.tar.bz2
+  download legacy-slots.md5
   check_md5 "$LEGACY_FILE"-latest.cbfs.tar.bz2 legacy-slots.md5
   tar -xjf "$LEGACY_FILE"-latest.cbfs.tar.bz2
   acceptance
